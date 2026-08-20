@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="大学連携による教科分析と正答数・質問調査の関連分析を扱う講義ページ">
+<title>03 教育データ分析の実際 | 教育行政におけるデータベース活用</title>
+<style>
+:root{--navy:#29465f;--blue:#4f718d;--pale:#e9f0f5;--ink:#23313d;--muted:#5f6f7c;--line:#c9d4dc;--paper:#f7f8f6;--white:#fff;--accent:#a8773e;--cream:#f5ede3;--green:#4f7564;--softgreen:#edf4f0}
+*{box-sizing:border-box}html,body{width:100%;min-height:100%;margin:0}body{height:100vh;overflow:hidden;background:var(--paper);color:var(--ink);font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;line-height:1.5}button,a{font:inherit}.shell{height:100vh;display:grid;grid-template-rows:10px auto minmax(0,1fr) auto}.top{background:linear-gradient(90deg,var(--navy) 0 72%,var(--accent) 72%)}header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px clamp(28px,5vw,76px);border-bottom:1px solid var(--line);background:var(--white)}.course{margin:0 0 3px;color:var(--blue);font-size:.8rem;font-weight:700;letter-spacing:.08em}h1{margin:0;color:var(--navy);font-size:clamp(1.25rem,2.1vw,2rem);line-height:1.3}.home{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:1px solid var(--line);border-radius:6px;color:var(--navy);font-size:.85rem;font-weight:700;text-decoration:none}.home:hover,.home:focus-visible{background:var(--pale);border-color:var(--blue);outline:none}main{min-height:0;width:min(1180px,calc(100% - 56px));margin:auto;padding:clamp(8px,1.3vh,14px) 0}.stage,.slide{height:100%;min-height:0}
+/* overflow-y: auto で縦スクロール可能に */
+.slide{display:none;min-height:0;padding:clamp(18px,3vw,40px);border:1px solid var(--line);border-top:7px solid var(--navy);border-radius:10px;background:var(--white);box-shadow:0 5px 18px rgba(41,70,95,.06);overflow-y:auto;overflow-x:hidden}
+.slide.active{display:flex}.eyebrow{margin:0 0 6px;color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:.12em}.slide-title{margin:0;color:var(--navy);font-size:clamp(1.35rem,2.4vw,2.1rem);line-height:1.35}.slide-lead{margin:7px 0 0;color:var(--muted);font-size:clamp(.82rem,1vw,.94rem)}
+/* 1枚目 */
+.overview{align-items:center;justify-content:center}.overview-inner{width:min(980px,100%);text-align:center}.scene-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,34px);margin-top:clamp(24px,4vh,42px);text-align:left}.scene-card{position:relative;padding:clamp(22px,3vw,34px);border:1px solid var(--line);border-radius:10px;background:#fbfcfd}.scene-card:first-child{border-top:6px solid var(--green);background:var(--softgreen)}.scene-card:last-child{border-top:6px solid var(--accent);background:#fffdfa}.scene-number{position:absolute;top:-19px;left:20px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;font-family:Georgia,"Times New Roman",serif;font-weight:700}.scene-card h3{margin:0 0 10px;color:var(--navy);font-size:clamp(1.05rem,1.5vw,1.32rem)}.scene-card p{margin:0;color:var(--muted);font-size:clamp(.82rem,1vw,.94rem)}.scene-exercise{margin-top:14px;padding:9px 12px;border-left:4px solid var(--accent);border-radius:5px;background:var(--cream);color:var(--navy);font-size:clamp(.74rem,.9vw,.85rem);line-height:1.45}.scene-exercise strong{display:block;margin-bottom:2px;color:var(--accent);font-size:.78em;letter-spacing:.08em}.scene-exercise span{display:block;font-weight:700}.key-question{margin:clamp(22px,3vh,34px) auto 0;padding:12px 20px;border-left:5px solid var(--accent);background:var(--cream);color:var(--navy);text-align:left}.key-question strong{display:block;font-size:clamp(.95rem,1.3vw,1.12rem);line-height:1.5}.key-question span{display:block;margin-top:4px;color:var(--ink);font-size:clamp(.82rem,1.05vw,.96rem);font-weight:700}
+/* ファイル掲載ページ */
+.resources{flex-direction:column;justify-content:center}.resource-head{text-align:center;margin-bottom:clamp(18px,3vh,30px)}.resource-grid{display:grid;gap:clamp(12px,1.8vw,20px)}.resource-grid.three{grid-template-columns:.9fr 1.05fr 1.05fr;align-items:stretch}.resource-column{display:grid;grid-template-rows:1fr 1fr;gap:clamp(10px,1.4vw,16px);min-width:0}.resource-column .resource-card{min-height:0}.resource-column.single{grid-template-rows:1fr}.resource-grid.correlation{grid-template-columns:repeat(2,minmax(0,1fr));max-width:980px;width:100%;margin:0 auto;align-items:stretch}.case2-left{display:grid;grid-template-rows:1fr 1fr;gap:clamp(10px,1.4vw,16px);min-width:0}.case2-left .resource-card{min-height:0}.correlation-data{height:100%}.download-stack{display:grid;gap:8px}.download-stack .file-button{width:100%;font-size:clamp(.72rem,.86vw,.8rem)}.exercise-guide{display:flex;flex-direction:column;align-items:center;margin-top:10px;padding-top:7px;border-top:1px solid var(--line);text-align:center}.exercise-arrow{color:var(--accent);font-size:1.45rem;font-weight:700;line-height:1}.exercise-caption{margin-top:1px;color:var(--muted);font-size:clamp(.65rem,.76vw,.72rem)}
+.resource-card{display:flex;flex-direction:column;min-height:190px;padding:clamp(16px,2vw,24px);border:1px solid var(--line);border-top:5px solid var(--blue);border-radius:9px;background:#fbfcfd}.resource-card.summary{border-top-color:var(--green)}.resource-card.book{border-top-color:var(--navy)}.resource-card.minutes{border-top-color:var(--accent)}.resource-card.pdf{border-top-color:var(--navy)}.resource-card.excel{border-top-color:var(--green)}.file-type{margin:0 0 7px;color:var(--muted);font-size:.72rem;font-weight:700;letter-spacing:.1em}.resource-card h3{margin:0;color:var(--navy);font-size:clamp(.98rem,1.3vw,1.16rem);line-height:1.4}.resource-card p{margin:8px 0 14px;color:var(--muted);font-size:clamp(.76rem,.92vw,.86rem);flex:1}.file-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--muted);font-size:.8rem;font-weight:700;text-decoration:none;cursor:not-allowed}.file-button.ready{background:var(--white);color:var(--navy);cursor:pointer}.file-button.ready:hover,.file-button.ready:focus-visible{background:var(--pale);border-color:var(--blue);outline:none}.notice{margin:clamp(14px,2vh,20px) 0 0;padding:10px 15px;border-radius:7px;background:var(--pale);color:var(--navy);font-size:clamp(.76rem,.92vw,.86rem);text-align:center}.causality{margin:clamp(14px,2vh,20px) 0 0;padding:11px 16px;border-left:5px solid var(--accent);background:var(--cream);color:var(--ink);font-size:clamp(.78rem,.95vw,.88rem)}.causality strong{color:var(--navy)}.meeting-slide{flex-direction:column;justify-content:center}.meeting-head{text-align:center;margin-bottom:clamp(10px,1.6vh,16px)}.meeting-subtitle{display:inline-block;margin:6px 0 1px;padding:4px 13px;border-radius:999px;background:var(--pale);color:var(--navy);font-size:clamp(.78rem,.95vw,.88rem);font-weight:700}.meeting-outline{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(9px,1.3vw,14px)}.meeting-card{min-height:135px;padding:clamp(11px,1.5vw,17px);border:1px solid var(--line);border-top:5px solid var(--blue);border-radius:9px;background:#fbfcfd}.meeting-card:nth-child(2){border-top-color:var(--green);background:var(--softgreen)}.meeting-card:nth-child(3){border-top-color:var(--accent);background:#fffdfa}.meeting-card:nth-child(4){border-top-color:var(--navy);background:#f6f8fa}.meeting-card .outline-number{display:block;margin-bottom:3px;color:var(--muted);font-family:Georgia,"Times New Roman",serif;font-size:.7rem;font-weight:700}.meeting-card h3{margin:0;color:var(--navy);font-size:clamp(.88rem,1.1vw,1.02rem)}.meeting-card ul{margin:5px 0 0;padding-left:1.18em;color:var(--muted);font-size:clamp(.67rem,.79vw,.76rem);line-height:1.4}.meeting-card li+li{margin-top:2px}.meeting-conclusion{margin-top:clamp(8px,1.2vh,12px);padding:7px 12px;border-left:5px solid var(--accent);background:var(--cream);color:var(--navy);font-size:clamp(.7rem,.83vw,.79rem);font-weight:700;text-align:left}
+footer{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:9px clamp(28px,5vw,76px);background:var(--navy);color:rgba(255,255,255,.9)}.foot-title{font-size:.76rem}.status{font-size:.8rem;font-weight:700}.nav{display:flex;justify-content:flex-end;gap:8px}.nav button{min-width:72px;padding:6px 11px;border:1px solid rgba(255,255,255,.42);border-radius:5px;background:transparent;color:#fff;cursor:pointer}.nav button:hover:not(:disabled),.nav button:focus-visible:not(:disabled){background:rgba(255,255,255,.12);outline:none}.nav button:disabled{opacity:.35;cursor:not-allowed}
+/* Home・Actionボタン用CSS */
+.nav button.home-mode{border-color:var(--accent);background:var(--accent);color:var(--white)}.nav button.home-mode:hover,.nav button.home-mode:focus-visible{background:#8f6334;outline:none}
+.prompt-box{padding:10px 15px;border:1px solid var(--line);border-radius:8px;text-align:left}
+.action-box{border-left:5px solid var(--accent);background:var(--cream)}
+.prompt-label{display:inline-flex;align-items:center;margin:0 0 5px;padding:3px 9px;border-radius:999px;background:var(--accent);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.08em}
+.action-steps{margin:0;color:var(--ink);font-size:clamp(.78rem,.95vw,.9rem);font-weight:700;line-height:1.55}
+
+@media(max-width:800px){body{height:auto;overflow:auto}.shell{height:auto;min-height:100vh}header{align-items:flex-start}.home span:last-child{display:none}main{width:calc(100% - 28px);min-height:760px}.slide{min-height:730px}.scene-grid,.resource-grid.three,.resource-grid.correlation,.meeting-outline{grid-template-columns:1fr}.foot-title{display:none}footer{grid-template-columns:1fr auto}}
+@media(max-height:720px) and (min-width:801px){header{padding-block:7px}main{padding-block:5px}.slide{padding:12px 24px}.scene-grid{margin-top:24px}.scene-card{padding:18px 22px}.key-question{margin-top:16px}.resource-head{margin-bottom:12px}.resource-card{min-height:165px;padding:12px 16px}.notice,.causality{margin-top:9px;padding-block:7px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="top" aria-hidden="true"></div>
+<header><div><p class="course">教育行政におけるデータベース活用</p><h1>03　教育データ分析の実際</h1></div><a class="home" href="index.html">⌂ Homeへ</a></header>
+<main><div class="stage" aria-live="polite">
+
+<!-- 1ページ目 -->
+<section class="slide overview active" data-slide="1" aria-labelledby="slide-title-1"><div class="overview-inner">
+<p class="eyebrow">SECTION OVERVIEW</p><h2 class="slide-title" id="slide-title-1">二つの分析場面から、教育データの読み解き方を考える</h2><p class="slide-lead">一つの分析で課題を確定するのではなく、複数の角度から改善に向けた仮説を具体化します。</p>
+<div class="scene-grid">
+<article class="scene-card"><span class="scene-number">1</span><h3>東京学芸大学との連携による算数・数学分析</h3><p>設問や学年間のつながりを踏まえ、算数・数学の学びに見られる傾向や、指導改善につながる視点を探ります。</p></article>
+<article class="scene-card"><span class="scene-number">2</span><h3>正答数と質問調査のクロス分析・相関</h3><p>正答数と質問項目の関連を多角的に捉え、学校や教育行政が検討すべき改善仮説を考えます。</p><div class="scene-exercise"><strong>【演習】</strong><span>正答数と質問調査の相関係数から、集団の特徴を読み取り、改善に向けた仮説を考えます。</span></div></article>
+</div>
+<div class="key-question"><strong>平均値や順位の確認にとどまらず、データから学校改善のボトルネックを探る。</strong><span>そして、「今の当たり前」を見直す必要があるかを考える。</span></div>
+</div></section>
+
+<!-- 2ページ目 -->
+<section class="slide resources" data-slide="2" aria-labelledby="slide-title-2">
+<div class="resource-head"><p class="eyebrow">CASE 1</p><h2 class="slide-title" id="slide-title-2">東京学芸大学との連携による、算数・数学の学びの分析</h2><p class="slide-lead">分析の概要をまとめたサマリー版と、小6算数・中3数学の本冊版を参照します。</p></div>
+<div class="resource-grid three">
+<article class="resource-card summary"><p class="file-type">PDF</p><h3>分析資料・サマリー版</h3><p>算数・数学の学びに関する分析の主な結果と、着目すべき論点を簡潔に確認する資料です。</p><a class="file-button ready" href="pdf/r7_gakugei_summury.pdf" target="_blank" rel="noopener noreferrer">サマリー版を開く</a></article>
+<div class="resource-column" aria-label="分析資料本冊版">
+<article class="resource-card book"><p class="file-type">PDF</p><h3>分析資料・本冊版　小6算数</h3><p>設問間の関係や学びの傾向を詳しく確認します。</p><a class="file-button ready" href="pdf/r7_syo6san.pdf" target="_blank" rel="noopener noreferrer">小6算数 本冊版を開く</a></article>
+<article class="resource-card book"><p class="file-type">PDF</p><h3>分析資料・本冊版　中3数学</h3><p>設問間の関係や学びの傾向を詳しく確認します。</p><a class="file-button ready" href="pdf/r7_chu3suu.pdf" target="_blank" rel="noopener noreferrer">中3数学 本冊版を開く</a></article>
+</div>
+<div class="resource-column single" aria-label="分析に関する打合せ資料">
+<article class="resource-card minutes"><p class="file-type">PDF</p><h3>当日にこちらから提示した打合せ資料</h3><p>県教育委員会から分析の背景や協議したい観点を示すために提示した資料です。</p><a class="file-button ready" href="pdf/20260603_meeting_memo.pdf" target="_blank" rel="noopener noreferrer">打合せ資料を開く</a></article>
+</div>
+</div>
+<p class="notice">各資料は新しいタブで開きます。</p>
+</section>
+
+<!-- 3ページ目 -->
+<section class="slide meeting-slide" data-slide="3" aria-labelledby="slide-title-3">
+<div class="meeting-head"><p class="eyebrow">CASE 1</p><h2 class="slide-title" id="slide-title-3">東京学芸大学との連携による、算数・数学の学びの分析</h2><p class="meeting-subtitle">今後のデータ分析における連携の方向性</p><p class="slide-lead">正答率だけでは見えないつまずきを捉え、分析結果を授業改善と学校支援へつなげる。</p></div>
+<div class="meeting-outline">
+<article class="meeting-card"><span class="outline-number">01</span><h3>回答内容から思考過程を捉える</h3><ul><li>記述していても、設問の中核を捉え切れていない回答が見られた</li><li>説明・証明では、数学的な用語や構成を十分に表現できていない</li><li>小学校のつまずきが、中学校で高度な形となって表れる可能性がある</li></ul></article>
+<article class="meeting-card"><span class="outline-number">02</span><h3>授業改善を具体的な支援へ</h3><ul><li>言語活動や説明活動を重視する方向性は、分析結果とも整合する</li><li>授業で何をさせ、何を記述させるかまで具体化する</li><li>自分の言葉と、数学的に必要な用語・構成の両方を指導する</li></ul></article>
+<article class="meeting-card"><span class="outline-number">03</span><h3>地域の実態に応じた学校支援へ</h3><ul><li>地域によって、つまずき方や課題の傾向が異なる可能性がある</li><li>分析結果を指導主事研修や学校訪問で活用できる形に整理する</li><li>教育事務所・市町村教育委員会と共有し、重点支援につなげる</li></ul></article>
+<article class="meeting-card"><span class="outline-number">04</span><h3>経年分析と他教科への展開</h3><ul><li>同一年の小6と中3の比較は、学年間の連続性を直接示すものではない</li><li>経年データから、つまずきの継続性や改善状況を捉える可能性を検討する</li><li>分析手法を英語など他教科へ展開することも視野に入れる</li></ul></article>
+</div>
+<p class="meeting-conclusion">分析結果を授業改善資料・指導主事研修・地域に応じた学校支援へ結び付け、大学との連携による追加分析を継続する。</p>
+</section>
+
+<!-- 4ページ目 -->
+<section class="slide resources" data-slide="4" aria-labelledby="slide-title-4">
+<div class="resource-head"><p class="eyebrow">CASE 2</p><h2 class="slide-title" id="slide-title-4">正答数と質問調査のクロス分析・相関</h2><p class="slide-lead">公表資料と各種データを確認し、相関係数から集団の特徴を考えます。</p></div>
+<div class="resource-grid correlation">
+<div class="case2-left" aria-label="公表資料と参考データ">
+<article class="resource-card pdf"><p class="file-type">WEB</p><h3>令和8年度 全国学力・学習状況調査</h3><p>国立教育政策研究所が公表している、令和8年度調査の報告書・調査結果資料を確認します。</p><a class="file-button ready" href="https://www.nier.go.jp/26chousakekkahoukoku/" target="_blank" rel="noopener noreferrer">国立教育政策研究所HPで調査結果を開く</a></article>
+<article class="resource-card pdf"><p class="file-type">CSV</p><h3>【参考】MEXCBTから得られるCSVデータサンプル</h3><p>MEXCBTから出力される教科調査・質問調査データの形式や項目を確認するためのサンプルです。</p><div class="download-stack"><a class="file-button ready" href="samples/sample_児童_教科.csv" download>児童・教科データサンプルをダウンロード</a><a class="file-button ready" href="samples/sample_児童_質問.csv" download>児童・質問データサンプルをダウンロード</a></div></article>
+</div>
+<article class="resource-card excel correlation-data"><p class="file-type">EXCEL</p><h3>県データから作成した相関データ</h3><p>県データを基に、正答数と質問項目との相関係数を算出したファイルです。ローデータは含みません。</p><div class="download-stack"><a class="file-button ready" href="samples/R8_全国学調_岩手_小学校_相関係数.xlsx" download>小学校の相関係数ファイルをダウンロード</a><a class="file-button ready" href="samples/R8_全国学調_岩手_中学校_相関係数.xlsx" download>中学校の相関係数ファイルをダウンロード</a></div>
+<div class="exercise-guide">
+  <span class="exercise-arrow" aria-hidden="true">↑</span>
+  <span class="exercise-caption">このデータを使います</span>
+  <div class="prompt-box action-box" style="margin-top: 10px; width: 100%;">
+    <span class="prompt-label">Action</span>
+    <p class="action-steps">正答数と質問調査の相関係数から、集団の特徴を考えてみましょう。次のページに進んでください。</p>
+  </div>
+</div></article>
+</div>
+<p class="causality"><strong>分析上の留意点：</strong>相関が見られることは、二つの項目の間に因果関係があることを意味しません。学校の実態や他の情報と組み合わせ、改善に向けた仮説として解釈します。</p>
+</section>
+
+<!-- 5ページ目 -->
+<section class="slide" data-slide="5" aria-labelledby="slide-title-5" style="flex-direction: column; justify-content: center; align-items: center;">
+<div style="width: min(100%, 820px); text-align: center;">
+  <p class="eyebrow">CASE 2</p>
+  <h2 class="slide-title" id="slide-title-5">正答数と質問調査のクロス分析・相関</h2>
+  <p class="slide-lead">相関データから読み取った特徴と仮説をフォームに入力し、全体で共有します。</p>
+  
+  <div class="prompt-box action-box" style="margin-top: 28px; text-align: left;">
+    <span class="prompt-label">Action</span>
+    <p class="action-steps">以下の手順でデータから気づいたことを整理し、送信してください。</p>
+    <ul style="margin: 12px 0 0; padding-left: 1.5em; color: var(--ink); font-size: clamp(.8rem, 1vw, .94rem); font-weight: 700; line-height: 1.6;">
+      <li>① 着目した２つの項目を挙げる（例：正答数 と 質問項目「〇〇」）</li>
+      <li>② その相関係数の特徴を書く（例：0.2より大きいので関連がありそうだ、負の相関がある等）</li>
+      <li>③ それに対する自分の分析や感想（学校現場の課題や仮説など）を書く</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 32px;">
+    <a class="file-button ready" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=ds18TgAtOUqL_UbB9Idi-z7nU9QKna9Iq9pFRbTDeexUMkg3UFNJQUQySlQ1VFo0MFJGSE4wOFVMTiQlQCNjPTEu" target="_blank" rel="noopener noreferrer" style="padding: 12px 28px; border: 1px solid var(--accent); background: var(--accent); color: var(--white); font-size: 1rem; box-shadow: 0 4px 10px rgba(168,119,62,.25);">入力フォームを開く（Microsoft Forms）</a>
+    <p style="margin: 14px 0 0; color: var(--muted); font-size: clamp(.75rem, .9vw, .86rem);">※送信後、講師側で回答をピックアップしながらディスカッションを行います。</p>
+  </div>
+</div>
+</section>
+
+</div></main>
+<footer><div class="foot-title">データから見る岩手県小中学校の現状とマネジメントの充実</div><div class="status"><span id="current">1</span> / <span id="total">5</span></div><div class="nav"><button id="prev" type="button">戻る</button><button id="next" type="button">次へ</button></div></footer>
+</div>
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const current = document.getElementById('current');
+const total = document.getElementById('total');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+let index = 0;
+
+function showSlide(n) {
+  index = Math.max(0, Math.min(n, slides.length - 1));
+  slides.forEach(function (slide, i) {
+    const isActive = i === index;
+    slide.classList.toggle('active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+    // スライド切り替え時にスクロール位置を一番上に戻す
+    if (isActive) {
+      slide.scrollTop = 0;
+    }
+  });
+  current.textContent = String(index + 1);
+  total.textContent = String(slides.length);
+  prev.disabled = index === 0;
+  
+  // 最後のスライド（5ページ目）で「Homeへ」ボタンに切り替わる
+  const isLast = index === slides.length - 1;
+  next.disabled = false;
+  next.textContent = isLast ? 'Homeへ' : '次へ';
+  next.classList.toggle('home-mode', isLast);
+}
+
+prev.addEventListener('click', function () {
+  showSlide(index - 1);
+});
+
+next.addEventListener('click', function () {
+  if (index === slides.length - 1) {
+    window.location.href = 'index.html';
+  } else {
+    showSlide(index + 1);
+  }
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'ArrowLeft') {
+    showSlide(index - 1);
+  } else if (event.key === 'ArrowRight' && index < slides.length - 1) {
+    showSlide(index + 1);
+  }
+});
+
+showSlide(0);
+</script>
+</body>
+</html>

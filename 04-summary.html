@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="教育データ活用の講義を振り返り、学校改善のアクションへつなげるまとめページ">
+<title>04 まとめ：データから学校改善のアクションへ | 教育行政におけるデータベース活用</title>
+<style>
+:root{--navy:#29465f;--blue:#4f718d;--pale:#e9f0f5;--ink:#23313d;--muted:#5f6f7c;--line:#c9d4dc;--paper:#f7f8f6;--white:#fff;--accent:#a8773e;--cream:#f5ede3;--green:#4f7564;--softgreen:#edf4f0}
+*{box-sizing:border-box}html,body{width:100%;min-height:100%;margin:0}body{height:100vh;overflow:hidden;background:var(--paper);color:var(--ink);font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;line-height:1.55}button,a{font:inherit}.shell{height:100vh;display:grid;grid-template-rows:10px auto minmax(0,1fr) auto}.top{background:linear-gradient(90deg,var(--navy) 0 72%,var(--accent) 72%)}header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px clamp(28px,5vw,76px);border-bottom:1px solid var(--line);background:var(--white)}.course{margin:0 0 3px;color:var(--blue);font-size:.8rem;font-weight:700;letter-spacing:.08em}h1{margin:0;color:var(--navy);font-size:clamp(1.2rem,2vw,1.9rem);line-height:1.3}.home{padding:8px 14px;border:1px solid var(--line);border-radius:6px;color:var(--navy);font-size:.85rem;font-weight:700;text-decoration:none}.home:hover,.home:focus-visible{background:var(--pale);border-color:var(--blue);outline:none}main{min-height:0;width:min(1180px,calc(100% - 56px));margin:auto;padding:clamp(8px,1.3vh,16px) 0}.stage,.slide{height:100%;min-height:0}
+.slide{display:none;min-height:0;padding:clamp(16px,2.8vw,36px);border:1px solid var(--line);border-top:7px solid var(--navy);border-radius:10px;background:var(--white);box-shadow:0 5px 18px rgba(41,70,95,.06);overflow-y:auto;overflow-x:hidden}
+.slide.active{display:flex;align-items:center;justify-content:center}
+.summary-inner{width:min(100%,1000px);margin:0 auto;display:flex;flex-direction:column;justify-content:center}
+.summary-head{text-align:center;margin-bottom:clamp(10px,2vh,18px)}
+.eyebrow{margin:0 0 4px;color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:.12em}
+.slide-title{margin:0;color:var(--navy);font-size:clamp(1.3rem,2.2vw,1.95rem);line-height:1.35}
+.slide-lead{margin:4px 0 0;color:var(--muted);font-size:clamp(.8rem,.98vw,.92rem)}
+
+/* 3列カードグリッド */
+.essence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,18px);margin-bottom:clamp(10px,1.8vh,16px)}
+.essence-card{padding:clamp(12px,1.6vw,18px);border:1px solid var(--line);border-top:5px solid var(--blue);border-radius:8px;background:#fbfcfd;text-align:left}
+.essence-card.focus{border-top-color:var(--accent);background:#fffdfa}
+.card-tag{display:inline-block;margin-bottom:5px;padding:2px 8px;border-radius:999px;background:var(--pale);color:var(--navy);font-size:.72rem;font-weight:700}
+.essence-card.focus .card-tag{background:var(--cream);color:var(--accent)}
+.essence-card h3{margin:0 0 5px;color:var(--navy);font-size:clamp(.92rem,1.2vw,1.08rem);font-weight:700;line-height:1.35}
+.essence-card p{margin:0;color:var(--muted);font-size:clamp(.75rem,.88vw,.84rem);line-height:1.55}
+
+/* メッセージボックス */
+.key-box{padding:clamp(10px,1.5vh,14px) 18px;border-radius:7px;background:var(--navy);color:var(--white);text-align:center}
+.key-box strong{display:block;font-size:clamp(.84rem,1.1vw,1rem);font-weight:700;line-height:1.5}
+.closing-callout{padding:clamp(10px,1.5vh,14px) 18px;border-left:5px solid var(--accent);border-radius:6px;background:var(--cream);color:var(--navy);text-align:center}
+.closing-callout strong{display:block;font-size:clamp(.88rem,1.18vw,1.05rem);line-height:1.55}
+
+/* 連絡事項ボックス */
+.lecture-notice{margin-top:clamp(8px,1.2vh,12px);padding:7px 14px;border-radius:6px;background:var(--pale);color:var(--muted);font-size:clamp(.7rem,.82vw,.78rem);line-height:1.45;text-align:center}
+.lecture-notice p{margin:0}
+.lecture-notice strong{color:var(--navy)}
+
+footer{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:9px clamp(28px,5vw,76px);background:var(--navy);color:rgba(255,255,255,.9)}.foot-title{font-size:.76rem}.status{font-size:.8rem;font-weight:700}.nav{display:flex;justify-content:flex-end;gap:8px}.nav button{min-width:72px;padding:6px 11px;border:1px solid rgba(255,255,255,.42);border-radius:5px;background:transparent;color:#fff;cursor:pointer}.nav button:hover:not(:disabled),.nav button:focus-visible:not(:disabled){background:rgba(255,255,255,.12);outline:none}.nav button:disabled{opacity:.35;cursor:not-allowed}
+.nav button.home-mode{border-color:var(--accent);background:var(--accent);color:var(--white)}.nav button.home-mode:hover,.nav button.home-mode:focus-visible{background:#8f6334;outline:none}
+
+@media(max-width:760px){body{height:auto;overflow:auto}.shell{height:auto;min-height:100vh}header{align-items:flex-start}main{width:calc(100% - 28px);min-height:760px}.slide{min-height:730px}.essence-grid{grid-template-columns:1fr}.foot-title{display:none}footer{grid-template-columns:1fr auto}}
+@media(max-height:720px) and (min-width:761px){header{padding-block:7px}main{padding-block:5px}.slide{padding:10px 20px}.summary-head{margin-bottom:6px}.essence-grid{margin-bottom:6px;gap:6px}.essence-card{padding:8px 12px}.key-box,.closing-callout{padding-block:6px}.lecture-notice{margin-top:5px;padding-block:4px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="top" aria-hidden="true"></div>
+<header><div><p class="course">教育行政におけるデータベース活用</p><h1>04　まとめ：データから学校改善のアクションへ</h1></div><a class="home" href="index.html">⌂ Homeへ</a></header>
+<main><div class="stage" aria-live="polite">
+
+<!-- スライド1：データ活用の本質 -->
+<section class="slide active" data-slide="1" aria-labelledby="slide-title-1">
+  <div class="summary-inner">
+    <div class="summary-head">
+      <p class="eyebrow">ESSENCE OF DATA USE</p>
+      <h2 class="slide-title" id="slide-title-1">データ活用の本質：学校改善への転換</h2>
+      <p class="slide-lead">客観的な根拠をもとに「今の当たり前」を問い直し、組織的な改善のアクションへ</p>
+    </div>
+
+    <div class="essence-grid">
+      <article class="essence-card">
+        <span class="card-tag">敬意と再考</span>
+        <h3>「当たり前」を問い直す</h3>
+        <p>これまでの教育成果に敬意を払いつつも、現状維持にとどまらず「常により良くする方法はないか」を探り続ける。</p>
+      </article>
+      <article class="essence-card">
+        <span class="card-tag">客観的根拠</span>
+        <h3>先入観をひっくり返す</h3>
+        <p>経験則や思い込みだけに頼らず、データから学校改善のボトルネックや子どもたちの真のつまずきを捉える。</p>
+      </article>
+      <article class="essence-card">
+        <span class="card-tag">視点の転換</span>
+        <h3>「順位」から「組織の支援」へ</h3>
+        <p>平均点や順位の議論に振り回されず（数値を上げることを否定するものではありません）、学校が組織的に取り組める支援につなぐ。</p>
+      </article>
+    </div>
+
+    <div class="key-box">
+      <strong>データは数値を競うためのものではなく、現場の教育実践をより確かなものにするための「手掛かり」。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- スライド2：県教委からのメッセージ -->
+<section class="slide" data-slide="2" aria-labelledby="slide-title-2">
+  <div class="summary-inner">
+    <div class="summary-head">
+      <p class="eyebrow">MESSAGE FROM PREFECTURAL BOE</p>
+      <h2 class="slide-title" id="slide-title-2">共に拓く、これからの岩手の教育</h2>
+      <p class="slide-lead">現場の確かな実践を支え、誰もがデータを活用できる環境づくりを進めています。</p>
+    </div>
+
+    <div class="essence-grid">
+      <article class="essence-card focus">
+        <span class="card-tag">評価・横展開</span>
+        <h3>優れた実践の価値づけ</h3>
+        <p>全体のスコアのみにとらわれず、現場の創意工夫や確かな改善成果を見いだし、全県へ共有・評価できる体制をつくる。</p>
+      </article>
+      <article class="essence-card focus">
+        <span class="card-tag">環境整備</span>
+        <h3>学校が使いやすい仕組み</h3>
+        <p>現場の負担感を減らし、効果的な改善に集中できるよう、ダッシュボード等のデータ活用基盤の開発を推進中。</p>
+      </article>
+      <article class="essence-card focus">
+        <span class="card-tag">共創・協働</span>
+        <h3>皆さんの力を合わせて</h3>
+        <p>学卒の柔軟な探究心と、現職教員の豊かな実践力。教育に携わる一人ひとりの知見を結集し、共に前へ進める。</p>
+      </article>
+    </div>
+
+    <div class="closing-callout">
+      <strong>データは学校を縛るものではなく、未来を切り拓くための「共通言語」。<br>皆さんと共に、岩手の子どもたちの豊かな学びを創っていきたいです。</strong>
+    </div>
+
+    <!-- 連絡事項 -->
+    <div class="lecture-notice">
+      <p><strong>【資料に関する連絡】</strong> 本Webページはおおよそ1週間程度アクセスできるようにしておきますが、その後は予告なく閉じる予定です。必要なファイルは各自ダウンロードして保存してください。</p>
+    </div>
+  </div>
+</section>
+
+</div></main>
+<footer><div class="foot-title">データから見る岩手県小中学校の現状とマネジメントの充実</div><div class="status"><span id="current">1</span> / <span id="total">2</span></div><div class="nav"><button id="prev" type="button">戻る</button><button id="next" type="button">次へ</button></div></footer>
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const current = document.getElementById('current');
+const total = document.getElementById('total');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+let index = 0;
+
+function showSlide(n) {
+  index = Math.max(0, Math.min(n, slides.length - 1));
+  slides.forEach(function (slide, i) {
+    const isActive = i === index;
+    slide.classList.toggle('active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+    if (isActive) {
+      slide.scrollTop = 0;
+    }
+  });
+  current.textContent = String(index + 1);
+  total.textContent = String(slides.length);
+  prev.disabled = index === 0;
+  
+  // 最後のスライド（2枚目）で「Homeへ」ボタンに切り替わる
+  const isLast = index === slides.length - 1;
+  next.disabled = false;
+  next.textContent = isLast ? 'Homeへ' : '次へ';
+  next.classList.toggle('home-mode', isLast);
+}
+
+prev.addEventListener('click', function () {
+  showSlide(index - 1);
+});
+
+next.addEventListener('click', function () {
+  if (index === slides.length - 1) {
+    window.location.href = 'index.html';
+  } else {
+    showSlide(index + 1);
+  }
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'ArrowLeft') {
+    showSlide(index - 1);
+  } else if (event.key === 'ArrowRight' && index < slides.length - 1) {
+    showSlide(index + 1);
+  }
+});
+
+showSlide(0);
+</script>
+</body>
+</html>

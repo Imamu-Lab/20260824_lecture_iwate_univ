@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="教育データ活用の目的を学校マネジメントと教育行政の視点から考える講義ページ">
+<title>01 データ活用の目的 | 教育行政におけるデータベース活用</title>
+<style>
+:root{--navy:#29465f;--blue:#4f718d;--pale:#e9f0f5;--ink:#23313d;--muted:#5f6f7c;--line:#c9d4dc;--paper:#f7f8f6;--white:#fff;--accent:#a8773e;--cream:#f5ede3}*{box-sizing:border-box}html,body{width:100%;min-height:100%;margin:0}body{height:100vh;overflow:hidden;background:var(--paper);color:var(--ink);font-family:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;line-height:1.55}.shell{height:100vh;display:grid;grid-template-rows:10px auto minmax(0,1fr) auto}.top{background:linear-gradient(90deg,var(--navy) 0 72%,var(--accent) 72%)}header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:13px clamp(28px,5vw,76px);border-bottom:1px solid var(--line);background:var(--white)}.course{margin:0 0 3px;color:var(--blue);font-size:.8rem;font-weight:700;letter-spacing:.08em}h1{margin:0;color:var(--navy);font-size:clamp(1.25rem,2.1vw,2rem)}.home{padding:8px 14px;border:1px solid var(--line);border-radius:6px;color:var(--navy);font-size:.85rem;font-weight:700;text-decoration:none}.home:hover,.home:focus-visible{background:var(--pale);border-color:var(--blue);outline:none}main{min-height:0;width:min(1180px,calc(100% - 56px));margin:auto;padding:clamp(12px,2vh,24px) 0}.stage,.slide{height:100%;min-height:0}.slide{display:none;padding:clamp(18px,3vw,42px);border:1px solid var(--line);border-top:7px solid var(--navy);border-radius:10px;background:var(--white);box-shadow:0 5px 18px rgba(41,70,95,.06)}.slide.active{display:flex}.question{align-items:center;justify-content:center;text-align:center}.inner{width:min(960px,100%)}.eyebrow{margin:0 0 10px;color:var(--accent);font-size:.85rem;font-weight:700;letter-spacing:.12em}.main-q{margin:0;color:var(--navy);font-size:clamp(1.55rem,3vw,2.7rem);line-height:1.45}.prompt-flow{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:12px;max-width:900px;margin:16px auto 0;text-align:left}.prompt-box{padding:11px 15px;border:1px solid var(--line);border-radius:8px}.question-box{border-left:5px solid var(--blue);background:var(--pale)}.action-box{border-left:5px solid var(--accent);background:var(--cream)}.prompt-label{display:inline-flex;align-items:center;margin:0 0 5px;padding:3px 9px;border-radius:999px;color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.08em}.question-box .prompt-label{background:var(--navy)}.action-box .prompt-label{background:var(--accent)}.prompt-text{margin:0;color:var(--navy);font-size:clamp(.82rem,1vw,.94rem);font-weight:700;line-height:1.5}.action-steps{margin:0;color:var(--ink);font-size:clamp(.78rem,.95vw,.9rem);font-weight:700;line-height:1.55}.hint{margin:14px 0 0;color:var(--muted);font-size:.95rem}.reveal-btn{margin-top:20px;padding:8px 18px;border:1px solid var(--blue);border-radius:6px;background:var(--white);color:var(--navy);font-weight:700;cursor:pointer}.reveal-btn:hover,.reveal-btn:focus-visible{background:var(--pale);outline:none}.reveal{max-height:0;overflow:hidden;opacity:0;transition:.3s}.reveal.show{max-height:250px;margin-top:18px;opacity:1}.keywords{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.tag{padding:5px 12px;border-radius:999px;background:#f2f4f5;color:var(--navy);font-size:.9rem;font-weight:700}.bridge{max-width:880px;margin:16px auto 0;padding:13px 18px;border-left:5px solid var(--accent);background:var(--cream);text-align:left}.bridge strong{display:block;color:var(--navy);font-size:clamp(.92rem,1.15vw,1.05rem);line-height:1.5}.bridge span{display:block;margin-top:4px;color:var(--ink);font-size:clamp(.8rem,.98vw,.9rem);font-weight:700;line-height:1.5}.summary{flex-direction:column;justify-content:center}.heading{text-align:center;margin-bottom:14px}.heading h2{margin:0;color:var(--navy);font-size:clamp(1.35rem,2.3vw,2.05rem)}.heading p{margin:5px 0 0;color:var(--muted);font-size:.9rem}.comparison{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch}.card{padding:clamp(13px,1.8vw,21px);border:1px solid var(--line);border-top:5px solid var(--blue);border-radius:8px;background:#fbfcfd}.card.action{border-top-color:var(--accent);background:#fffdfa}.label{margin:0 0 4px;color:var(--muted);font-size:.74rem;font-weight:700;letter-spacing:.08em}.card h3{margin:0 0 8px;color:var(--navy);font-size:clamp(1rem,1.4vw,1.24rem)}.card ul{margin:0;padding-left:1.25em;font-size:clamp(.8rem,.95vw,.9rem)}.card li+li{margin-top:3px}.arrow{align-self:center;color:var(--accent);font-size:2.3rem;font-weight:700}.message{margin-top:14px;padding:13px 20px;border-radius:7px;background:var(--navy);color:var(--white);text-align:center}.message strong{display:block;font-size:clamp(.98rem,1.35vw,1.18rem);line-height:1.55}.message small{display:block;margin-top:4px;color:rgba(255,255,255,.8);font-size:clamp(.72rem,.85vw,.82rem);font-weight:400}.future-note{margin:10px 0 0;color:var(--muted);font-size:clamp(.75rem,.9vw,.86rem);text-align:center}.future-note b{color:var(--accent)}footer{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:9px clamp(28px,5vw,76px);background:var(--navy);color:rgba(255,255,255,.9)}.foot-title{font-size:.76rem}.status{font-size:.8rem;font-weight:700}.nav{display:flex;justify-content:flex-end;gap:8px}.nav button{min-width:72px;padding:6px 11px;border:1px solid rgba(255,255,255,.42);border-radius:5px;background:transparent;color:#fff;cursor:pointer}.nav button:disabled{opacity:.35;cursor:not-allowed}.nav button.home-mode{border-color:var(--accent);background:var(--accent);color:var(--white)}.nav button.home-mode:hover,.nav button.home-mode:focus-visible{background:#8f6334;outline:none}@media(max-width:760px){body{height:auto;overflow:auto}.shell{height:auto;min-height:100vh}main{width:calc(100% - 28px);min-height:700px}.prompt-flow{grid-template-columns:1fr}.comparison{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center}.foot-title{display:none}footer{grid-template-columns:1fr auto}}@media(max-height:720px) and (min-width:761px){header{padding-block:8px}main{padding-block:8px}.slide{padding:13px 25px}.main-q{font-size:clamp(1.4rem,2.5vw,2.1rem)}.reveal-btn{margin-top:12px}.reveal.show{margin-top:10px}.bridge{margin-top:9px;padding-block:8px}.heading{margin-bottom:8px}.card{padding:10px 15px}.message{margin-top:8px;padding-block:8px}.future-note{margin-top:5px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="top" aria-hidden="true"></div>
+<header><div><p class="course">教育行政におけるデータベース活用</p><h1>01　データ活用の目的</h1></div><a class="home" href="index.html">⌂ Homeへ</a></header>
+<main><div class="stage" aria-live="polite">
+<section class="slide question active" data-slide="1" aria-labelledby="title1"><div class="inner">
+<p class="eyebrow">THINK</p>
+<h2 class="main-q" id="title1">「学力 × データ活用」と聞いて、<br>どのような活用や提示の仕方を思い浮かべますか？</h2>
+<div class="prompt-flow">
+<div class="prompt-box question-box"><span class="prompt-label">Question</span><p class="prompt-text">どのような数値を見て、その後にどのような行動を取るでしょうか。</p></div>
+<div class="prompt-box action-box"><span class="prompt-label">Action｜個人 → ペア</span><p class="action-steps">① 1分程度、自分の考えを整理します。<br>② 隣の方と、思い浮かべた数値や活用方法を共有します。</p></div>
+</div>
+<button class="reveal-btn" id="revealBtn" type="button" aria-expanded="false" aria-controls="revealArea">共有の後にクリック</button>
+<div class="reveal" id="revealArea"><div class="keywords"><span class="tag">平均点</span><span class="tag">順位</span><span class="tag">偏差値</span><span class="tag">全国平均との差</span><span class="tag">前年度との比較</span></div>
+<p class="bridge"><strong>平均点や順位は、教育の現状を捉えるための一つの指標です。</strong><span>データは、数値を上げることだけを目的とするものではなく、課題を明らかにし、その対応を考えるための根拠として活用します。</span></p></div>
+</div></section>
+<section class="slide summary" data-slide="2" aria-labelledby="title2">
+<div class="heading"><p class="eyebrow">FROM DATA TO ACTION</p><h2 id="title2">「結果の確認」から「学校改善のアクション」へ</h2><p>平均点や順位は現在地を知るために大切です。その先に、改善につながる問いを置きます。</p></div>
+<div class="comparison"><article class="card"><p class="label">現在地を知る</p><h3>結果を確認するデータ活用</h3><ul><li>平均点や正答率はどうだったか</li><li>全国や県との差はどの程度か</li><li>前年度から変化したか</li></ul></article><div class="arrow" aria-hidden="true">→</div><article class="card action"><p class="label">改善につなげる</p><h3>学校の中で起きていることを探る</h3><ul><li>児童生徒は、どこでつまずいているか</li><li>学校の取組は、成果につながっているか</li><li>指導や改善方策に、見直す点はないか</li><li>成果を上げている実践は、どこにあるか</li></ul></article></div>
+<div class="message"><strong>これまでの岩手の教育の蓄積を大切にしながら、<br>データを手掛かりに「今の当たり前」を問い直し、<br>これからの社会に向かう児童生徒の学びを充実させるための、改善のきっかけをつくる。</strong><small>過去の実践を否定するのではなく、その価値と課題を確かめ、先入観にとらわれない次のアクションへ</small></div>
+<p class="future-note"><b>AIの進展や児童生徒の多様化</b>に対応するためにも、教員・学校・教育行政が実践を継続的に点検し、更新する。</p>
+</section>
+</div></main>
+<footer><div class="foot-title">データから見る岩手県小中学校の現状とマネジメントの充実</div><div class="status"><span id="current">1</span> / <span id="total">2</span></div><div class="nav"><button id="prev" type="button">戻る</button><button id="next" type="button">次へ</button></div></footer>
+</div>
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const current = document.getElementById('current');
+const total = document.getElementById('total');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const revealBtn = document.getElementById('revealBtn');
+const revealArea = document.getElementById('revealArea');
+let index = 0;
+
+function showSlide(n) {
+  index = Math.max(0, Math.min(n, slides.length - 1));
+  slides.forEach(function (slide, i) {
+    const isActive = i === index;
+    slide.classList.toggle('active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+  });
+  current.textContent = String(index + 1);
+  total.textContent = String(slides.length);
+  prev.disabled = index === 0;
+  const isLast = index === slides.length - 1;
+  next.disabled = false;
+  next.textContent = isLast ? 'Homeへ' : '次へ';
+  next.classList.toggle('home-mode', isLast);
+}
+
+prev.addEventListener('click', function () {
+  showSlide(index - 1);
+});
+
+next.addEventListener('click', function () {
+  if (index === slides.length - 1) {
+    window.location.href = 'index.html';
+  } else {
+    showSlide(index + 1);
+  }
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'ArrowLeft') {
+    showSlide(index - 1);
+  } else if (event.key === 'ArrowRight' && index < slides.length - 1) {
+    showSlide(index + 1);
+  }
+});
+
+revealBtn.addEventListener('click', function () {
+  const isOpen = !revealArea.classList.contains('show');
+  revealArea.classList.toggle('show', isOpen);
+  revealBtn.setAttribute('aria-expanded', String(isOpen));
+  revealBtn.textContent = isOpen ? '表示を閉じる' : '共有の後にクリック';
+});
+
+showSlide(0);
+</script>
+</body></html>
