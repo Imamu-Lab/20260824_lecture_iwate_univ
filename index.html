@@ -16,6 +16,15 @@
 .pdf-dl-link span{color:var(--accent);font-weight:700}
 
 footer{padding:10px clamp(28px,5vw,76px);background:var(--navy);color:rgba(255,255,255,.84);font-size:.78rem;text-align:right}@media(max-width:900px){main{grid-template-columns:1fr}.message{padding-block:18px}.question{margin-block:10px 6px}}@media(max-width:620px){main{width:min(100% - 28px,1180px)}.list{grid-template-columns:1fr}.toc-head{align-items:flex-start;flex-direction:column;gap:3px}.link{min-height:90px}}@media(max-height:720px) and (min-width:901px){header{padding-block:16px 12px}main{padding-block:14px}.link{min-height:84px;padding-block:10px}.message,.toc{padding:18px}.toc-footer{margin-top:8px}}
+
+/* セクション04とPDF版の更新表示 */
+.link.summary.updated{position:relative;border-color:#d8c4aa;border-left-color:var(--accent);background:#fffdfa;box-shadow:0 4px 12px rgba(168,119,62,.08)}
+.update-badge{display:inline-flex;align-items:center;margin:0 0 5px 7px;padding:2px 8px;border-radius:999px;background:var(--accent);color:var(--white);font-size:.66rem;font-weight:700;letter-spacing:.06em;vertical-align:middle}
+.update-note{display:block;margin-top:7px;padding:6px 9px;border-left:3px solid var(--accent);border-radius:4px;background:var(--cream,#f5ede3);color:var(--navy);font-size:clamp(.67rem,.8vw,.75rem);font-weight:700;line-height:1.4}
+.update-note small{display:block;margin-top:2px;color:var(--muted);font-size:.92em;font-weight:500}
+.pdf-update{display:inline-block;margin-left:3px;color:#c43d3d!important;font-size:.68rem;font-weight:800;letter-spacing:.08em}
+@media(max-width:620px){.update-badge{margin-left:5px}.update-note{margin-top:5px}}
+
 </style>
 </head>
 <body>
@@ -34,11 +43,11 @@ footer{padding:10px clamp(28px,5vw,76px);background:var(--navy);color:rgba(255,2
 <li><a class="link" href="01-purpose.html"><span class="num">01</span><span><span class="title">データ活用の目的</span><span class="sub">平均点・順位の確認から学校改善へ</span></span></a></li>
 <li><a class="link" href="02-policy-surveys.html"><span class="num">02</span><span><span class="title">学力向上施策と各種調査</span><span class="sub">施策・全国学調・県学調の位置付け</span></span></a></li>
 <li><a class="link" href="03-analysis-practice.html"><span class="num">03</span><span><span class="title">教育データ分析の実際と演習</span><span class="sub">大学連携による分析事例と、相関データを用いた演習</span></span></a></li>
-<li><a class="link summary" href="04-summary.html"><span class="num">04</span><span><span class="badge">まとめ</span><span class="title">データから学校改善のアクションへ</span><span class="sub">講義の振り返りと、今後の実践に向けて</span></span></a></li>
+<li><a class="link summary updated" href="04-summary.html"><span class="num">04</span><span><span class="badge">まとめ</span><span class="update-badge">講義後コンテンツ追加</span><span class="title">データから学校改善のアクションへ</span><span class="sub">講義の振り返りと、今後の実践に向けて</span><span class="update-note">演習結果・事後共有を追加しました<small>回答の共有・集約、質問・感想フォームを掲載しています。</small></span></span></a></li>
 </ol>
 <!-- 右下の控えめなPDFダウンロードリンク -->
 <div class="toc-footer">
-  <a class="pdf-dl-link" href="pdf/webstyle_contents.pdf" download><span aria-hidden="true">↓</span>本資料PDF版のダウンロード</a>
+  <a class="pdf-dl-link" href="pdf/webstyle_contents.pdf" download><span aria-hidden="true">↓</span>本資料PDF版のダウンロード <strong class="pdf-update">UPDATE</strong></a>
 </div>
 </nav>
 </main>
